@@ -29,7 +29,7 @@ class BbcodeToolbar extends BasePlugin
 
     public function addLanguage($data)
     {
-        load_textdomain('bbcode-toolbar', dirname(__FILE__).'/lang/'.Container::get('user')->language.'/bbeditor.mo');
+        translate('bbeditor', 'bbcode-toolbar');
         $lang_bbeditor = array(
             'btnBold' => __('btnBold', 'bbcode-toolbar'),
             'btnItalic' => __('btnItalic', 'bbcode-toolbar'),
