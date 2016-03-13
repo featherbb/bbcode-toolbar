@@ -13,8 +13,12 @@ use FeatherBB\Core\AdminUtils;
 
 // Make sure no one attempts to run this script "directly"
 if (isset($feather)) {
+    echo "plugin upgrade script";
     // Check if 'style' folder from version <= 0.2.2 exists
     if (is_dir(__DIR__.'/style')) {
         AdminUtils::delete_folder(__DIR__.'/style');
     }
+}
+else {
+    echo "no feather";
 }
