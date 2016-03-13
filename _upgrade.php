@@ -12,7 +12,7 @@ namespace FeatherBB\Plugins;
 use FeatherBB\Core\AdminUtils;
 
 // Make sure no one attempts to run this script "directly"
-if (isset($feather)) {
+if (isset($upgrade_script)) {
     echo "plugin upgrade script";
     // Check if 'style' folder from version <= 0.2.2 exists
     if (is_dir(__DIR__.'/style')) {
