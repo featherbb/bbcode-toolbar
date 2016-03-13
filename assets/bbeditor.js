@@ -18,7 +18,7 @@
 var textarea,
     content,
     target = document.getElementById( 'req_message' ),
-     toolbar = postEditorToolbar('req_message');
+    toolbar = postEditorToolbar('req_message');
 
 target.insertAdjacentHTML( 'beforeBegin', toolbar );
 
@@ -28,24 +28,24 @@ function postEditorToolbar(obj) {
         output = '';
     // Toolbar buttons
     output += "<div class=\"toolbar\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/bold.png\" name=\"btnBold\" title=\""+langBbeditor.btnBold+"\" onClick=\"doAddTags('[b]','[/b]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/italic.png\" name=\"btnItalic\" title=\""+langBbeditor.btnItalic+"\" onClick=\"doAddTags('[i]','[/i]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/underline.png\" name=\"btnUnderline\" title=\""+langBbeditor.btnUnderline+"\" onClick=\"doAddTags('[u]','[/u]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/eyedropper.png\" name=\"btnColor\" title=\""+langBbeditor.btnColor+"\" onClick=\"toggleColorpicker()\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/bold.png\" name=\"btnBold\" title=\""+langBbeditor.btnBold+"\" onClick=\"doAddTags('[b]','[/b]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/italic.png\" name=\"btnItalic\" title=\""+langBbeditor.btnItalic+"\" onClick=\"doAddTags('[i]','[/i]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/underline.png\" name=\"btnUnderline\" title=\""+langBbeditor.btnUnderline+"\" onClick=\"doAddTags('[u]','[/u]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/eyedropper.png\" name=\"btnColor\" title=\""+langBbeditor.btnColor+"\" onClick=\"toggleColorpicker()\">";
         output += '<span class="toolbar-separator"></span>';
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/align-left.png\" name=\"btnLeft\" title=\""+langBbeditor.btnLeft+"\" onClick=\"doAddTags('[left]','[/left]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/align-right.png\" name=\"btnRight\" title=\""+langBbeditor.btnRight+"\" onClick=\"doAddTags('[right]','[/right]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/align-justify.png\" name=\"btnJustify\" title=\""+langBbeditor.btnJustify+"\" onClick=\"doAddTags('[justify]','[/justify]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/align-center.png\" name=\"btnCenter\" title=\""+langBbeditor.btnCenter+"\" onClick=\"doAddTags('[center]','[/center]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/align-left.png\" name=\"btnLeft\" title=\""+langBbeditor.btnLeft+"\" onClick=\"doAddTags('[left]','[/left]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/align-right.png\" name=\"btnRight\" title=\""+langBbeditor.btnRight+"\" onClick=\"doAddTags('[right]','[/right]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/align-justify.png\" name=\"btnJustify\" title=\""+langBbeditor.btnJustify+"\" onClick=\"doAddTags('[justify]','[/justify]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/align-center.png\" name=\"btnCenter\" title=\""+langBbeditor.btnCenter+"\" onClick=\"doAddTags('[center]','[/center]','" + obj + "')\">";
         output += '<span class="toolbar-separator"></span>';
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/link.png\" name=\"btnLink\" title=\""+langBbeditor.btnLink+"\" onClick=\"doURL('" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/file-image-o.png\" name=\"btnPicture\" title=\""+langBbeditor.btnPicture+"\" onClick=\"doImage('" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/link.png\" name=\"btnLink\" title=\""+langBbeditor.btnLink+"\" onClick=\"doURL('" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/file-image-o.png\" name=\"btnPicture\" title=\""+langBbeditor.btnPicture+"\" onClick=\"doImage('" + obj + "')\">";
         output += '<span class="toolbar-separator"></span>';
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/list-ol.png\" name=\"btnList\" title=\""+langBbeditor.btnList+"\" onClick=\"doList('[list=1]','[/list]','" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/list-ul.png\" name=\"btnList\" title=\""+langBbeditor.btnList+"\" onClick=\"doList('[list]','[/list]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/list-ol.png\" name=\"btnList\" title=\""+langBbeditor.btnList+"\" onClick=\"doList('[list=1]','[/list]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/list-ul.png\" name=\"btnList\" title=\""+langBbeditor.btnList+"\" onClick=\"doList('[list]','[/list]','" + obj + "')\">";
         output += '<span class="toolbar-separator"></span>';
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/quote-left.png\" name=\"btnQuote\" title=\""+langBbeditor.btnQuote+"\" onClick=\"doQuote('" + obj + "')\">";
-        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/style/img/bbeditor/code.png\" name=\"btnCode\" title=\""+langBbeditor.btnCode+"\" onClick=\"doAddTags('[code]','[/code]','" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/quote-left.png\" name=\"btnQuote\" title=\""+langBbeditor.btnQuote+"\" onClick=\"doQuote('" + obj + "')\">";
+        output += "<img class=\"toolbar-icon\" src=\""+baseUrl+"/plugins/bbcode-toolbar/assets/img/code.png\" name=\"btnCode\" title=\""+langBbeditor.btnCode+"\" onClick=\"doAddTags('[code]','[/code]','" + obj + "')\">";
         // output += "<i class=\"fa fa-smile-o toolbar-icon\" title=\"Smilies\" onClick=\"doSmiley('" + obj + "')\"></i>");
     output += "</div>";
 

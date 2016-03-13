@@ -29,24 +29,24 @@ class BbcodeToolbar extends BasePlugin
 
     public function addLanguage($data)
     {
-        translate('bbeditor', 'bbcode-toolbar');
+        translate('bbeditor', 'featherbb', false, __DIR__.'/lang');
         $lang_bbeditor = array(
-            'btnBold' => __('btnBold', 'bbcode-toolbar'),
-            'btnItalic' => __('btnItalic', 'bbcode-toolbar'),
-            'btnUnderline' => __('btnUnderline', 'bbcode-toolbar'),
-            'btnColor' => __('btnColor', 'bbcode-toolbar'),
-            'btnLeft' => __('btnLeft', 'bbcode-toolbar'),
-            'btnRight' => __('btnRight', 'bbcode-toolbar'),
-            'btnJustify' => __('btnJustify', 'bbcode-toolbar'),
-            'btnCenter' => __('btnCenter', 'bbcode-toolbar'),
-            'btnLink' => __('btnLink', 'bbcode-toolbar'),
-            'btnPicture' => __('btnPicture', 'bbcode-toolbar'),
-            'btnList' => __('btnList', 'bbcode-toolbar'),
-            'btnQuote' => __('btnQuote', 'bbcode-toolbar'),
-            'btnCode' => __('btnCode', 'bbcode-toolbar'),
-            'promptImage' => __('promptImage', 'bbcode-toolbar'),
-            'promptUrl' => __('promptUrl', 'bbcode-toolbar'),
-            'promptQuote' => __('promptQuote', 'bbcode-toolbar')
+            'btnBold' => __('btnBold'),
+            'btnItalic' => __('btnItalic'),
+            'btnUnderline' => __('btnUnderline'),
+            'btnColor' => __('btnColor'),
+            'btnLeft' => __('btnLeft'),
+            'btnRight' => __('btnRight'),
+            'btnJustify' => __('btnJustify'),
+            'btnCenter' => __('btnCenter'),
+            'btnLink' => __('btnLink'),
+            'btnPicture' => __('btnPicture'),
+            'btnList' => __('btnList'),
+            'btnQuote' => __('btnQuote'),
+            'btnCode' => __('btnCode'),
+            'promptImage' => __('promptImage'),
+            'promptUrl' => __('promptUrl'),
+            'promptQuote' => __('promptQuote')
         );
         $data['jsVars']['bbcodeToolbar'] = json_encode($lang_bbeditor);
         return $data;
@@ -54,10 +54,10 @@ class BbcodeToolbar extends BasePlugin
 
     public function addToolbar()
     {
-        View::addAsset('css', 'plugins/bbcode-toolbar/style/bbeditor.css', array('type' => 'text/css', 'rel' => 'stylesheet'));
-        View::addAsset('css', 'plugins/bbcode-toolbar/style/colorPicker.css', array('type' => 'text/css', 'rel' => 'stylesheet'));
-        View::addAsset('js', 'plugins/bbcode-toolbar/style/bbeditor.js', array('type' => 'text/javascript'));
-        View::addAsset('js', 'plugins/bbcode-toolbar/style/colorPicker.js', array('type' => 'text/javascript'));
+        View::addAsset('css', 'plugins/bbcode-toolbar/assets/bbeditor.css', array('type' => 'text/css', 'rel' => 'stylesheet'));
+        View::addAsset('css', 'plugins/bbcode-toolbar/assets/colorPicker.css', array('type' => 'text/css', 'rel' => 'stylesheet'));
+        View::addAsset('js', 'plugins/bbcode-toolbar/assets/bbeditor.js', array('type' => 'text/javascript'));
+        View::addAsset('js', 'plugins/bbcode-toolbar/assets/colorPicker.js', array('type' => 'text/javascript'));
         return true;
     }
 
