@@ -15,12 +15,20 @@
 // URL: http://www.corpocrat.com
 /******************************************/
 
-var textarea,
-    content,
-    target = document.getElementById( 'req_message' ),
-    toolbar = postEditorToolbar('req_message');
+(function () {
+    var textarea = document.getElementById('req_message');
 
-target.insertAdjacentHTML( 'beforeBegin', toolbar );
+    if (textarea) {
+        textarea.insertAdjacentHTML( 'beforeBegin', postEditorToolbar('req_message') );
+
+        // Close color picker content on color selected
+        var colorCells = document.getElementById('colorbox').getElementsByTagName("b");
+        for(var i=0; i<colorCells.length; i++) {
+            colorCells[i].onclick=function(event) { toggleColorpicker() }
+        }
+    }
+
+}());
 
 function postEditorToolbar(obj) {
     // Get translations from js block in footer
@@ -67,16 +75,9 @@ function postEditorToolbar(obj) {
 
     return output;
 }
-
-// Close color picker content on color selected
-var colorCells = document.getElementById('colorbox').getElementsByTagName("b");
-for(var i=0; i<colorCells.length; i++) {
-    colorCells[i].onclick=function(event) { toggleColorpicker() }
-}
-
-
 function doImage(obj) {
-    textarea = document.getElementById(obj);
+    var textarea = document.getElementById(obj),
+        langBbeditor = JSON.parse(phpVars.bbcodeToolbar);
     var url = prompt(langBbeditor.promptImage, 'http://'),
         scrollTop = textarea.scrollTop,
         scrollLeft = textarea.scrollLeft;
@@ -93,7 +94,6 @@ function doImage(obj) {
                 end = textarea.selectionEnd,
 
                 sel = textarea.value.substring(start, end),
-                //alert(sel);
                 rep = '[img]' + url + '[/img]';
             textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);
 
@@ -105,7 +105,8 @@ function doImage(obj) {
 }
 
 function doURL(obj) {
-    textarea = document.getElementById(obj);
+    var textarea = document.getElementById(obj),
+        langBbeditor = JSON.parse(phpVars.bbcodeToolbar);
     var url = prompt(langBbeditor.promptUrl, 'http://'),
         scrollTop = textarea.scrollTop,
         scrollLeft = textarea.scrollLeft;
@@ -122,8 +123,6 @@ function doURL(obj) {
                 sel.text = '[url=' + url + ']' + sel.text + '[/url]';
             }
 
-            //alert(sel.text);
-
         } else {
             var len = textarea.value.length,
                 start = textarea.selectionStart,
@@ -136,7 +135,6 @@ function doURL(obj) {
             } else {
                 var rep = '[url=' + url + ']' + sel + '[/url]';
             }
-            //alert(sel);
 
             textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);
 
@@ -148,14 +146,15 @@ function doURL(obj) {
 }
 
 function doQuote(obj) {
-    var author = prompt(langBbeditor.promptQuote),
+    var langBbeditor = JSON.parse(phpVars.bbcodeToolbar),
+        author = prompt(langBbeditor.promptQuote),
         openTag = (author != '' && author != null) ? '[quote='+author+']' : '[quote]';
 
     doAddTags(openTag,'[/quote]',obj)
 }
 
 function doAddTags(tag1, tag2, obj) {
-    textarea = document.getElementById(obj);
+    var textarea = document.getElementById(obj);
     // Code for IE
     if (document.selection) {
         textarea.focus();
@@ -188,7 +187,7 @@ function doAddTags(tag1, tag2, obj) {
 }
 
 function doList(tag1, tag2, obj) {
-    textarea = document.getElementById(obj);
+    var textarea = document.getElementById(obj);
     // Code for IE
     if (document.selection) {
         textarea.focus();
@@ -198,7 +197,6 @@ function doList(tag1, tag2, obj) {
         for (i = 0; i < list.length; i++) {
             list[i] = '[*]' + list[i] + '[/*]';
         }
-        //alert(list.join("\n"));
         sel.text = tag1 + '\n' + list.join("\n") + '\n' + tag2;
     } else
     // Code for Firefox
@@ -212,17 +210,13 @@ function doList(tag1, tag2, obj) {
         var scrollTop = textarea.scrollTop;
         var scrollLeft = textarea.scrollLeft;
 
-
         var sel = textarea.value.substring(start, end);
-        //alert(sel);
 
         var list = sel.split('\n');
 
         for (i = 0; i < list.length; i++) {
             list[i] = '[*]' + list[i] + '[/*]';
         }
-        //alert(list.join("<br>"));
-
 
         var rep = tag1 + '\n' + list.join("\n") + '\n' + tag2;
         textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);
@@ -241,8 +235,7 @@ function toggleColorpicker() {
     colorpicker.style.display=display;
 }
 function OnCustomColorChanged(selectedColor, selectedColorTitle, colorPickerIndex) {
-    // alert(MC.rgbToHex(selectedColor))
-    textarea = document.getElementById('req_message');
+    var textarea = document.getElementById('req_message');
     var scrollTop = textarea.scrollTop;
     var scrollLeft = textarea.scrollLeft;
 
@@ -250,9 +243,6 @@ function OnCustomColorChanged(selectedColor, selectedColorTitle, colorPickerInde
         textarea.focus();
         var sel = document.selection.createRange();
         sel.text = '[color=' + MC.rgbToHex(selectedColor) + ']' + sel.text + '[/color]';
-
-        //alert(sel.text);
-
     } else {
         var len = textarea.value.length;
         var start = textarea.selectionStart;
@@ -260,7 +250,6 @@ function OnCustomColorChanged(selectedColor, selectedColorTitle, colorPickerInde
 
         var sel = textarea.value.substring(start, end);
         var rep = '[color=' + MC.rgbToHex(selectedColor) + ']' + sel + '[/color]';
-        //alert(sel);
 
         textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);
 
@@ -268,4 +257,4 @@ function OnCustomColorChanged(selectedColor, selectedColorTitle, colorPickerInde
         textarea.scrollTop = scrollTop;
         textarea.scrollLeft = scrollLeft;
     }
-};
+}
