@@ -29,24 +29,24 @@ class BbcodeToolbar extends BasePlugin
 
     public function addLanguage($data)
     {
-        translate('bbeditor', 'featherbb', false, __DIR__.'/lang');
+        translate('bbeditor', 'bbcode-toolbar', false, __DIR__.'/lang');
         $lang_bbeditor = array(
-            'btnBold' => __('btnBold'),
-            'btnItalic' => __('btnItalic'),
-            'btnUnderline' => __('btnUnderline'),
-            'btnColor' => __('btnColor'),
-            'btnLeft' => __('btnLeft'),
-            'btnRight' => __('btnRight'),
-            'btnJustify' => __('btnJustify'),
-            'btnCenter' => __('btnCenter'),
-            'btnLink' => __('btnLink'),
-            'btnPicture' => __('btnPicture'),
-            'btnList' => __('btnList'),
-            'btnQuote' => __('btnQuote'),
-            'btnCode' => __('btnCode'),
-            'promptImage' => __('promptImage'),
-            'promptUrl' => __('promptUrl'),
-            'promptQuote' => __('promptQuote')
+            'btnBold' => __('btnBold', 'bbcode-toolbar'),
+            'btnItalic' => __('btnItalic', 'bbcode-toolbar'),
+            'btnUnderline' => __('btnUnderline', 'bbcode-toolbar'),
+            'btnColor' => __('btnColor', 'bbcode-toolbar'),
+            'btnLeft' => __('btnLeft', 'bbcode-toolbar'),
+            'btnRight' => __('btnRight', 'bbcode-toolbar'),
+            'btnJustify' => __('btnJustify', 'bbcode-toolbar'),
+            'btnCenter' => __('btnCenter', 'bbcode-toolbar'),
+            'btnLink' => __('btnLink', 'bbcode-toolbar'),
+            'btnPicture' => __('btnPicture', 'bbcode-toolbar'),
+            'btnList' => __('btnList', 'bbcode-toolbar'),
+            'btnQuote' => __('btnQuote', 'bbcode-toolbar'),
+            'btnCode' => __('btnCode', 'bbcode-toolbar'),
+            'promptImage' => __('promptImage', 'bbcode-toolbar'),
+            'promptUrl' => __('promptUrl', 'bbcode-toolbar'),
+            'promptQuote' => __('promptQuote', 'bbcode-toolbar')
         );
         $data['jsVars']['bbcodeToolbar'] = json_encode($lang_bbeditor);
         return $data;
