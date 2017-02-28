@@ -15,8 +15,9 @@ Add a buttons toolbar above message fields to help you manipulate BBcode tags ea
 
 ## Changelog
 
-### v0.3.1
-Add french translation & sandbox code for minification
+### v0.4.1
+
+### v0.4.0
 
 ### v0.3.0
 Add \_upgrade.php script

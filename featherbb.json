@@ -2,7 +2,7 @@
     "name": "bbcode-toolbar",
     "title": "BBCode Toolbar",
     "description": "Add a default toolbar to format BBCode in your posts.",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "keywords": ["featherbb", "bbcode", "toolbar", "helper", "messages"],
     "author": {
         "name": "beaver"
