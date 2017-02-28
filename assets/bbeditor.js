@@ -63,7 +63,7 @@ function postEditorToolbar(obj) {
         <span class="hexbox"></span>\
         <span class="clear" style="border-top:1px solid #999;border-bottom:1px solid #fff;"></span>\
         <span class="colorbox" id="colorbox">\
-            <b class="selected" style="background:#007fff" title="Azure"></b>\
+            <b class="selected" style="background:#156bd4" title="Azure"></b>\
             <b style="background:#626878" title="Charcoal"></b>\
             <b style="background:#2E436E" title="Navy Blue"></b>\
             <b style="background:#8db600" title="Apple Green"></b>\
